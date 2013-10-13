@@ -1,39 +1,40 @@
 ﻿namespace Nancy.Owin.AutoStartup.Demo
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using global::Owin;
     using global::Owin.AutoStartup;
 
-    // Uncomment this class to see the behaviour when AutoStartups clash
+    // Uncomment the interface implementation in this class to see the behaviour when AutoStartups clash
 
-    //public class HelloWorldAutoStartup : IAutoStartup
-    //{
-    //    public string Name
-    //    {
-    //        get
-    //        {
-    //            return "HelloWorld";
-    //        }
-    //    }
+    public class HelloWorldAutoStartup// : IAutoStartup
+    {
+        public string Name
+        {
+            get
+            {
+                return "HelloWorld";
+            }
+        }
 
-    //    public string Path
-    //    {
-    //        get
-    //        {
-    //            return "/";
-    //        }
-    //    }
+        public string Path
+        {
+            get
+            {
+                return "/";
+            }
+        }
 
-    //    public IDictionary<string, object[]> DefaultBuilderCommands { get; private set; }
+        public IEnumerable<string> DefaultBuilderCommands { get { return Enumerable.Empty<string>(); } }
 
-    //    public void Configuration(IAppBuilder builder)
-    //    {
-    //        builder.UseHandlerAsync((req, res) =>
-    //        {
-    //            res.ContentType = "text/plain";
-    //            return res.WriteAsync("Hello, World!");
-    //        });
-    //    }
-    //}
+        public void Configuration(IAppBuilder builder)
+        {
+            builder.UseHandlerAsync((req, res) =>
+            {
+                res.ContentType = "text/plain";
+                return res.WriteAsync("Hello, World!");
+            });
+        }
+    }
 }
