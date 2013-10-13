@@ -4,7 +4,7 @@
     {
         public TestModule()
         {
-            Get["/"] = _ => "Hello world!";
+            Get["/"] = _ => View["index"];
         }
     }
 }

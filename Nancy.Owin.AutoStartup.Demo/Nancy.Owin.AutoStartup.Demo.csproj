@@ -94,6 +94,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Index.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
